@@ -2,7 +2,8 @@
 #   A Hubot plugin to play sounds on http://soundspac.es.
 #
 # Dependencies:
-#   "validator": "~2.0.0"
+#   validator: ~2.0.0
+#   request: 2.30.x
 #
 # Configuration:
 #   HUBOT_SOUNDSPACES_ROOM_KEY - This is your unique http://soundspac.es room key.
