@@ -19,6 +19,7 @@
   "private": true,
   "main": "./src/soundspaces.coffee",
   "dependencies": {
-    "validator": "2.0.x"
+    "validator": "2.0.x",
+    "request": "2.30.x"
   }
 }
