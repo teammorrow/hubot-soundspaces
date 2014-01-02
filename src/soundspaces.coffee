@@ -94,7 +94,8 @@ module.exports = (robot) ->
         form: {
           'sound_name': sound_name,
           'sound_url': sound,
-          'timestamp': Date.now()
+          'timestamp': Date.now(),
+          'author': msg.message.user.name
         }
       }, (error, response, body) ->
           if (error || response.statusCode != 200)
