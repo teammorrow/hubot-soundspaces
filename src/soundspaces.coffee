@@ -24,6 +24,7 @@ path = require 'path'
 check = require('validator').check
 
 request = require 'request'
+moment = require 'moment'
 
 process.env.HUBOT_SOUNDSPACES_ROOM_KEY = 'teambeep'
 process.env.HUBOT_SOUNDSPACES_BASE_SOUND_URL = 'http://iftl.pastfuture.com/sounds/'
@@ -66,7 +67,7 @@ module.exports = (robot) ->
           msg.send 'I only support sounds from HTTP(s) endpoints. Sorry!'
           return
 
-        sound_name = sound
+        sound_name = path.basename(sound, '.mp3')
       else
         # Check if the sound we want to play is either a poorly-formed URL (like
         # it's missing a protocol), or they're trying to send something like
@@ -95,6 +96,7 @@ module.exports = (robot) ->
           'sound_name': sound_name,
           'sound_url': sound,
           'timestamp': Date.now(),
+          'date': moment().format('l, h:mm a');
           'author': msg.message.user.name
         }
       }, (error, response, body) ->

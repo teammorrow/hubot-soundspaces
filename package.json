@@ -7,9 +7,9 @@
     "hubot",
     "script"
   ],
-  "licenses" : [
+  "licenses": [
     {
-      "type" : "MIT"
+      "type": "MIT"
     }
   ],
   "repository": {
@@ -20,6 +20,7 @@
   "main": "./src/soundspaces.coffee",
   "dependencies": {
     "validator": "2.0.x",
-    "request": "2.30.x"
+    "request": "2.30.x",
+    "moment": "~2.5.0"
   }
 }
