@@ -28,7 +28,7 @@ moment = require 'moment'
 
 process.env.HUBOT_SOUNDSPACES_ROOM_KEY = 'teambeep'
 process.env.HUBOT_SOUNDSPACES_BASE_SOUND_URL = 'http://iftl.pastfuture.com/sounds/'
-process.env.HUBOT_SOUNDSPACES_SOUND_URL = 'http://localhost:3001/play/'
+process.env.HUBOT_SOUNDSPACES_SOUND_URL = 'http://soundspaces.herokuapp.com/play/'
 #process.env.HUBOT_SOUNDSPACES_SOUND_URL = 'http://soundspac.es/sounds'
 
 ###
