@@ -96,7 +96,7 @@ module.exports = (robot) ->
           'sound_name': sound_name,
           'sound_url': sound,
           'timestamp': Date.now(),
-          'date': moment().format('l, h:mm a');
+          'date': moment().format('l, h:mm:ss a');
           'author': msg.message.user.name
         }
       }, (error, response, body) ->
