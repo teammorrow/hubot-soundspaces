@@ -4,6 +4,7 @@
 # Dependencies:
 #   validator: ~2.0.0
 #   request: 2.30.x
+#   moment: ~2.5.0
 #
 # Configuration:
 #   HUBOT_SOUNDSPACES_ROOM_KEY - This is your unique http://soundspac.es room key.
@@ -13,8 +14,8 @@
 # Commands:
 #   /soundspaces - Displays the soundspac.es room you have configured.
 #   /sound soundName
-#   /sound http://www.dropbox.com/s/2xqd5yw3hffko5m/hom.mp3
-#   /sound https://www.dropbox.com/s/2xqd5yw3hffko5m/hom.mp3
+#   /sound http://www.dropbox.com/s/someuniquekey/hom.mp3
+#   /sound https://www.dropbox.com/s/someuniquekey/hom.mp3
 #
 # Author:
 #   jonursenbach
@@ -25,17 +26,6 @@ check = require('validator').check
 
 request = require 'request'
 moment = require 'moment'
-
-process.env.HUBOT_SOUNDSPACES_ROOM_KEY = 'teambeep'
-process.env.HUBOT_SOUNDSPACES_BASE_SOUND_URL = 'http://iftl.pastfuture.com/sounds/'
-process.env.HUBOT_SOUNDSPACES_SOUND_URL = 'http://soundspaces.herokuapp.com/play/'
-#process.env.HUBOT_SOUNDSPACES_SOUND_URL = 'http://soundspac.es/sounds'
-
-###
-/sound http://www.dropbox.com/s/2xqd5yw3hffko5m/hom.mp3
-/sound https://www.dropbox.com/s/2xqd5yw3hffko5m/hom.mp3
-/sound ftp://www.dropbox.com/s/2xqd5yw3hffko5m/hom.mp3
-###
 
 module.exports = (robot) ->
   robot.hear /\/soundspaces/i, (msg) ->
