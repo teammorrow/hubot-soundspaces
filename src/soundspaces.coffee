@@ -29,10 +29,11 @@ moment = require 'moment'
 
 module.exports = (robot) ->
   robot.hear /\/soundspaces/i, (msg) ->
-    if (!process.env.HUBOT_SOUNDSPACES_ROOM_KEY || process.env.HUBOT_SOUNDSPACES_ROOM_KEY == '')
-      msg.send 'It doesn\'t appear that you\'ve set up a soundspac.es room yet. What are you waiting for?'
-    else
-      msg.send 'Listen to sounds here: http://soundspac.es/' + process.env.HUBOT_SOUNDSPACES_ROOM_KEY
+    msg.send 'Listen to sounds here: http://soundspac.es'
+    #if (!process.env.HUBOT_SOUNDSPACES_ROOM_KEY || process.env.HUBOT_SOUNDSPACES_ROOM_KEY == '')
+    #  msg.send 'It doesn\'t appear that you\'ve set up a soundspac.es room yet. What are you waiting for?'
+    #else
+    #  msg.send 'Listen to sounds here: http://soundspac.es/' + process.env.HUBOT_SOUNDSPACES_ROOM_KEY
 
   robot.hear /\/sound (.*)/i, (msg) ->
     sound = msg.match[1].trim()
@@ -78,8 +79,6 @@ module.exports = (robot) ->
         sound = process.env.HUBOT_SOUNDSPACES_BASE_SOUND_URL + sound + '.mp3'
 
       # Lets play it!
-      msg.send 'im going to play: ' + sound
-
       request.post({
         uri: process.env.HUBOT_SOUNDSPACES_SOUND_URL,
         form: {
