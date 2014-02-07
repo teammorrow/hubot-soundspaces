@@ -1,6 +1,6 @@
 {
   "name": "hubot-soundspaces",
-  "version": "0.0.2.1",
+  "version": "0.0.3",
   "author": "Jon Ursenbach <jon@ursenba.ch>",
   "description": "A Hubot plugin to play sounds on http://soundspac.es",
   "keywords": [
