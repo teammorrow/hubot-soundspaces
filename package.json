@@ -1,11 +1,12 @@
 {
   "name": "hubot-soundspaces",
-  "version": "0.0.2",
+  "version": "0.0.2.1",
   "author": "Jon Ursenbach <jon@ursenba.ch>",
   "description": "A Hubot plugin to play sounds on http://soundspac.es",
   "keywords": [
     "hubot",
-    "script"
+    "script",
+    "soundspaces"
   ],
   "licenses": [
     {
@@ -14,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonursenbach/hubot-soundspaces.git"
+    "url": "https://github.com/teammorrow/hubot-soundspaces.git"
   },
   "main": "./src/soundspaces.coffee",
   "dependencies": {
