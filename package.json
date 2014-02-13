@@ -20,7 +20,6 @@
   "main": "./src/soundspaces.coffee",
   "dependencies": {
     "validator": "2.0.x",
-    "request": "2.30.x",
-    "moment": "~2.5.0"
+    "request": "2.30.x"
   }
 }

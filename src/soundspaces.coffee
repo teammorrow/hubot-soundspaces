@@ -4,7 +4,6 @@
 # Dependencies:
 #   validator: ~2.0.0
 #   request: 2.30.x
-#   moment: ~2.5.0
 #
 # Configuration:
 #   HUBOT_SOUNDSPACES_ROOM_KEY - This is your unique http://soundspac.es room key.
@@ -25,7 +24,6 @@ path = require 'path'
 check = require('validator').check
 
 request = require 'request'
-moment = require 'moment'
 
 module.exports = (robot) ->
   robot.hear /\/soundspaces/i, (msg) ->
@@ -82,18 +80,20 @@ module.exports = (robot) ->
       request.post({
         uri: process.env.HUBOT_SOUNDSPACES_SOUND_URL,
         form: {
-          'sound_name': sound_name,
-          'sound_url': sound,
-          'timestamp': Date.now(),
-          'date': moment().format('l, h:mm:ss a');
+          'sound': sound_name,
+          'url': sound,
           'author': msg.message.user.name
         }
       }, (error, response, body) ->
           if (error || response.statusCode != 200)
-            console.log error
+            body = JSON.parse(body)
+            if (typeof body.err != 'undefined')
+              msg.send 'API ERROR: ' + body.err
+            else
+              msg.send 'API ERROR: ' + error
       );
     catch error
-      console.log error
+      msg.send 'API ERROR: ' + error
 
     return
 
