@@ -85,15 +85,19 @@ module.exports = (robot) ->
           'author': msg.message.user.name
         }
       }, (error, response, body) ->
-          if (error || response.statusCode != 200)
-            body = JSON.parse(body)
-            if (typeof body.err != 'undefined')
-              msg.send 'API ERROR: ' + body.err
-            else
-              msg.send 'API ERROR: ' + error
+        if (response.statusCode == 200)
+          return
+
+        if (body != '')
+          body = JSON.parse(body)
+          if (typeof body.err != 'undefined')
+            msg.send 'API ERROR: ' + body.err
+            return
+
+        msg.send 'API ERROR: ' + error
       );
     catch error
-      msg.send 'API ERROR: ' + error
+      msg.send 'FATAL UNKNOWN ERROR: ' + error
 
     return
 
