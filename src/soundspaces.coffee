@@ -11,10 +11,10 @@
 #   HUBOT_SOUNDSPACES_SOUND_URL - Where your sounds are hosted. (eg. http://my.websi.te/sounds/)
 #
 # Commands:
-#   /soundspaces - Displays the soundspac.es room you have configured.
-#   /sound soundName
-#   /sound http://www.dropbox.com/s/someuniquekey/hom.mp3
-#   /sound https://www.dropbox.com/s/someuniquekey/hom.mp3
+#   !soundspaces - Displays the soundspac.es room you have configured.
+#   !sound soundName
+#   !sound http://www.dropbox.com/s/someuniquekey/hom.mp3
+#   !sound https://www.dropbox.com/s/someuniquekey/hom.mp3
 #
 # Author:
 #   jonursenbach
@@ -26,14 +26,14 @@ check = require('validator').check
 request = require 'request'
 
 module.exports = (robot) ->
-  robot.hear /\/soundspaces/i, (msg) ->
+  robot.hear /\!soundspaces/i, (msg) ->
     msg.send 'Listen to sounds here: http://soundspac.es'
     #if (!process.env.HUBOT_SOUNDSPACES_ROOM_KEY || process.env.HUBOT_SOUNDSPACES_ROOM_KEY == '')
     #  msg.send 'It doesn\'t appear that you\'ve set up a soundspac.es room yet. What are you waiting for?'
     #else
     #  msg.send 'Listen to sounds here: http://soundspac.es/' + process.env.HUBOT_SOUNDSPACES_ROOM_KEY
 
-  robot.hear /\/sound (.*)/i, (msg) ->
+  robot.hear /\!sound (.*)/i, (msg) ->
     sound = msg.match[1].trim()
     play_sound = false
 
